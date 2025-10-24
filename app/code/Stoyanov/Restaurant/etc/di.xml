@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface"
+            type="Stoyanov\Restaurant\Model\RestaurantRepository"/>
+    <preference for="Stoyanov\Restaurant\Api\RestaurantBuilderInterface"
+                type="Stoyanov\Restaurant\Model\RestaurantBuilder"/>
+    <preference for="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface"
+      type="Stoyanov\Restaurant\Model\RestaurantRepository"/>
+    <preference for="Stoyanov\Restaurant\Api\Data\RestaurantInterface"
+                type="Stoyanov\Restaurant\Model\Restaurant" />
+    <preference for="Stoyanov\Restaurant\Api\Data\RestaurantSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Stoyanov\Restaurant\Api\RequestRestaurantInterface"
+                type="Stoyanov\Restaurant\Helper\RequestRestaurant"/>
+    <preference for="Stoyanov\Restaurant\Api\RestaurantManagerInterface"
+                type="Stoyanov\Restaurant\Helper\RestaurantManager"/>
+    <preference for="Stoyanov\Restaurant\Api\AccountManagerInterface"
+                type="Stoyanov\Restaurant\Integration\AccountManager"/>
+    <preference for="Stoyanov\Restaurant\Api\ApiProcessorInterface"
+                type="Stoyanov\Restaurant\Integration\LaravelApiProcessor"/>
+    <virtualType name="Stoyanov\Restaurant\Model\ResourceModel\Restaurant\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">restaurants</argument>
+            <argument name="resourceModel" xsi:type="string">Stoyanov\Restaurant\Model\ResourceModel\Restaurant</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="restaurants_restaurant_listing_data_source" xsi:type="string">Stoyanov\Restaurant\Model\ResourceModel\Restaurant\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

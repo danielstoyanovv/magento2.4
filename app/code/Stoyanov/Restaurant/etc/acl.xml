@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::content">
+                    <resource id="Stoyanov_Restaurant::stoyanov" title="Stoyanov" translate="title" sortOrder="900">
+                        <resource id="Stoyanov_Restaurant::restaurant" title="Restaurants" translate="title">
+                            <resource id="Stoyanov_Restaurant::restaurant_save" title="Save" translate="title"/>
+                            <resource id="Stoyanov_Restaurant::restaurant_delete" title="Delete" translate="title"/>
+                            <resource id="Stoyanov_Restaurant::restaurant_user" title="Save" translate="title"/>
+                            <resource id="Stoyanov_Restaurant::restaurant_login" title="Save" translate="title"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
