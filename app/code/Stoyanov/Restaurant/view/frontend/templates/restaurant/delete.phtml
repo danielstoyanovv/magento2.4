@@ -1,0 +1,38 @@
+<p>
+    <a href="<?= $block->getUrl('restaurants/restaurant/index') ?>"><?= __('Our Restaurants') ?></a>
+</p>
+<h1><?= __("Restaurant's edit page") ?></h1>
+<?php
+/** @var $block \Stoyanov\Restaurant\Block\Restaurant\Delete */
+    $restaurant = $block->getRestaurant();
+?>
+<form action="<?= $escaper->escapeUrl($block->getFormAction()) ?>"
+      method="post"
+      data-mage-init='{"validation":{}}'>
+
+    <?= $block->getBlockHtml('formkey'); ?> <!-- CSRF protection -->
+
+    <input type="hidden" name="entity_id" value="<?= $restaurant->getEntityId() ?>" />
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"
+               value="<?= $escaper->escapeHtml($restaurant->getName()) ?>" required/>
+    </div>
+
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input type="number" name="capacity" id="capacity"
+               value="<?= (int)$restaurant->getCapacity() ?>" required/>
+    </div>
+
+    <div>
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location"
+               value="<?= $escaper->escapeHtml($restaurant->getLocation()) ?>" required/>
+    </div>
+
+    <button type="submit"><?= __('Delete') ?></button>
+</form>
+
+
